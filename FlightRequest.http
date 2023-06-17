@@ -1,0 +1,4 @@
+POST http://localhost:8080/flight/add
+Content-Type: application/x-www-form-urlencoded;charset=utf-8
+
+dateOfFlight=2022-06-15&flightHrs=2&flightMins=30&cycles=1
