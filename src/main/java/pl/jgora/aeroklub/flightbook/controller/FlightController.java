@@ -1,17 +1,21 @@
 package pl.jgora.aeroklub.flightbook.controller;
 
+
 import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import pl.jgora.aeroklub.flightbook.entity.Flight;
 import pl.jgora.aeroklub.flightbook.service.FlightService;
+
+import java.time.LocalDate;
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 public class FlightController {
@@ -25,19 +29,69 @@ public class FlightController {
     }
 
     @PostMapping("/flight/add")
-    public void save(Flight flight,BindingResult bindingResult){
+    public String save(Flight flight,BindingResult bindingResult){
           {
 
             if (bindingResult.hasErrors()) {
-                System.out.println("nie zapisało");
+                return "/flight/add";
 
             }
 
             flightService.save(flight);
 
-              System.out.println("zapisało");;
+
+              return "redirect:/flight/list";
         }
     }
+
+
+    @GetMapping(path = "/flight/search")
+    String showSearchFlightForm() {
+        return "flight/search";
+
+    }
+    @GetMapping(path = "/flight/search", params = "flightDate")
+    String findByDate(@RequestParam LocalDate flightDate, Model model){
+        List<Flight> flights = flightService.findBydateOfFlight(flightDate);
+        model.addAttribute("flights", flights);
+        System.out.println(flights.toString());
+        return "flight/list";
+    }
+
+    @GetMapping("/flight/list")
+    String findAllFlights(Model model){
+        List<Flight> flights = flightService.findAllFlights();
+        model.addAttribute("flights", flights);
+        return "flight/list";
+    }
+
+    @GetMapping(path = "/flight/delete", params = "id")
+    public String deleteFlight(@RequestParam Long id){
+        flightService.deleteById(id);
+        return "redirect:/flight/list";
+    }
+
+    @GetMapping(path = "/flight/edit")
+    String showEditFlightForm(@RequestParam Long id, Model model) {
+
+        Flight flight = flightService.findById(id);
+        model.addAttribute("flight", flight);
+        return "flight/edit";
+    }
+
+    @PostMapping(path = "/flight/edit")
+    String processEditFlightForm( Flight flight, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return "flight/edit";
+        }
+
+        flightService.editFlight(flight);
+
+        return "redirect:/flight/list";
+    }
+
+
 
 
 }

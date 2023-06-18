@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: marcin
-  Date: 17.06.2023
-  Time: 19:17
+  Date: 18.06.2023
+  Time: 15:14
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<h3>Dodawanie lotów</h3>
+<h3>Edycja lotu:</h3>
 
 <form:form method="post" modelAttribute="flight">
 
@@ -25,8 +25,9 @@
   <div>godziny: <form:input path="flightHrs" type="number" min="0" max="24"/></div>
   <div>minuty: <form:input path="flightMins" type="number" min="0" max="59"/></div>
   <div>Ilość lotów: <form:input path="cycles" type="number" min="1" max="999"/></div>
+  <form:hidden path="id"/>
 
-  <input type="submit" value="Dodaj lot">
+  <input type="submit" value="Aktualizuj">
 </form:form>
 
 </body>
