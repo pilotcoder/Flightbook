@@ -35,5 +35,8 @@ public class Glider {
     @OneToMany
     private List<Flight> flightList;
 
+    @OneToMany
+    private List<LLP> llpList;
+
 
 }
