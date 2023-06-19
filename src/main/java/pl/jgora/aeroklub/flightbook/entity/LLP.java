@@ -30,6 +30,10 @@ public class LLP {
 
     private Integer maxCycles;
 
+    @ManyToOne
+    private Glider glider;
+
+
 
 
 

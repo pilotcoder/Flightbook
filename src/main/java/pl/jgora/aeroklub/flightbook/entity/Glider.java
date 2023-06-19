@@ -5,7 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.Fetch;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -33,10 +35,10 @@ public class Glider {
     private Integer totalCycles;
 
     @OneToMany
-    private List<Flight> flightList;
+    private List<Flight> flightList = new ArrayList<>();
 
-    @OneToMany
-    private List<LLP> llpList;
+    @OneToMany(mappedBy = "glider")
+    private List<LLP> llpList = new ArrayList<>();
 
 
 }

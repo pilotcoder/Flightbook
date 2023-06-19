@@ -20,6 +20,14 @@ public class LLPController {
     private final LLPService llpService;
 
 
+    // wyswietlenie formularza dodawania ksiazki
+    @GetMapping(path = "/llp/add")
+    String showAddLLPForm(Model model) {
+        model.addAttribute("part", new LLP());
+        return "llp/add";
+    }
+
+
     @PostMapping("/llp/add")
     public String save(LLP llp,BindingResult bindingResult){
         {
@@ -57,17 +65,17 @@ public class LLPController {
         return "llp/edit";
     }
 
-//    @PostMapping(path = "/llp/edit")
-//    String processEditLLPForm( LLP llp, BindingResult bindingResult) {
-//
-//        if (bindingResult.hasErrors()) {
-//            return "llp/edit";
-//        }
-//
-//       llpService.editLlp(llp);
-//
-//        return "redirect:/llp/list";
-//    }
+    @PostMapping(path = "/llp/edit")
+    String processEditLLPForm(LLP llp, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return "llp/edit";
+        }
+
+       llpService.editLlp(llp);
+
+        return "redirect:/llp/list";
+    }
 
 
 

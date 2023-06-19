@@ -32,7 +32,7 @@
       <td>${llp.id}</td>
       <td>${llp.name}</td>
       <td>${llp.type}</td>
-      <td>${llp.derialNumber}</td>
+      <td>${llp.serialNumber}</td>
       <td>${llp.maxLifetime}</td>
       <td>${llp.dateOfExpiry}</td>
       <td>${llp.maxCycles}</td>

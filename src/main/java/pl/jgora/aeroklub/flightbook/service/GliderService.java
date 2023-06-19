@@ -14,4 +14,8 @@ public class GliderService {
     private final GliderRepository gliderRepository;
 
     public void save(Glider glider){gliderRepository.save(glider);}
+
+    public Glider findGliderByRegNumber(String regNumber){
+        return gliderRepository.findGliderByRegNumber(regNumber);
+    }
 }
