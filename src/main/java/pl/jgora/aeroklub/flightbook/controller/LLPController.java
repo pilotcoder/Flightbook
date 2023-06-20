@@ -5,10 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.jgora.aeroklub.flightbook.entity.Flight;
+import pl.jgora.aeroklub.flightbook.entity.Glider;
 import pl.jgora.aeroklub.flightbook.entity.LLP;
+import pl.jgora.aeroklub.flightbook.service.GliderService;
 import pl.jgora.aeroklub.flightbook.service.LLPService;
 
 import java.util.List;
@@ -18,6 +21,7 @@ import java.util.List;
 public class LLPController {
 
     private final LLPService llpService;
+    private final GliderService gliderService;
 
 
     // wyswietlenie formularza dodawania ksiazki
@@ -48,6 +52,7 @@ public class LLPController {
     String findAllLLP(Model model){
         List<LLP> llpList = llpService.findAll();
         model.addAttribute("llplist", llpList);
+
         return "llp/list";
     }
 
@@ -75,6 +80,11 @@ public class LLPController {
        llpService.editLlp(llp);
 
         return "redirect:/llp/list";
+    }
+
+    @ModelAttribute("gliders")
+    public List<Glider> findAllGliders(){
+        return gliderService.findAllGliders();
     }
 
 

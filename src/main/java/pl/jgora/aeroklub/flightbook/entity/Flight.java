@@ -30,6 +30,9 @@ public class Flight {
 
     private Integer cycles;
 
+    @ManyToOne
+    private Glider glider;
+
 
     @PrePersist
     private void flightTimeToMinutes() {

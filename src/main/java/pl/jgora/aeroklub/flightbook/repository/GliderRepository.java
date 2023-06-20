@@ -6,7 +6,7 @@ import pl.jgora.aeroklub.flightbook.entity.Glider;
 
 public interface GliderRepository extends JpaRepository<Glider, Long> {
 
-  //  @EntityGraph(attributePaths = {"llpList"})
+    @EntityGraph(attributePaths = {"llpList"})
     public Glider findGliderByRegNumber(String regNumber);
 
 }

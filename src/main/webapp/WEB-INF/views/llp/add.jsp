@@ -22,11 +22,11 @@
   <div>nazwa: <form:input path="name"/><form:errors path="name" cssClass="error"/></div>
   <div>typ: <form:input path="type"/><form:errors path="type" cssClass="error"/></div>
   <div>S/N: <form:input path="serialNumber"/><form:errors path="serialNumber" cssClass="error"/></div>
-  <div>do szybowca: <form:select path="glider" items="${gliders}" itemLabel="name" itemValue="id"/><form:errors path="glider.regNumber" cssClass="error"/></div>
+  <div>do szybowca: <form:radiobuttons path="glider" items="${gliders}" itemLabel="regNumber" itemValue="id"/><form:errors path="glider" cssClass="error"/></div>
   <div>żywotność: <form:input path="maxLifetime" type="number" min="1" placeholder="podaj w godzinach"/><form:errors path="maxLifetime" cssClass="error"/></div>
   <div>cykle: <form:input path="maxCycles" type="number" min="1" placeholder="podaj ilość cykli"/><form:errors path="maxCycles" cssClass="error"/></div>
 
-  <input type="submit" value="Add book">
+  <input type="submit" value="Dodaj podzespół">
 </form:form>
 
 </body>

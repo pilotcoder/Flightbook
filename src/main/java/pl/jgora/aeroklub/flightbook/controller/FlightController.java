@@ -7,11 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.jgora.aeroklub.flightbook.entity.Flight;
+import pl.jgora.aeroklub.flightbook.entity.Glider;
 import pl.jgora.aeroklub.flightbook.service.FlightService;
+import pl.jgora.aeroklub.flightbook.service.GliderService;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -21,6 +24,7 @@ import java.util.List;
 public class FlightController {
 
     private final FlightService flightService;
+    private final GliderService gliderService;
 
     @GetMapping(path="/flight/add")
     String showAddFlightForm(Model model) {
@@ -89,6 +93,11 @@ public class FlightController {
         flightService.editFlight(flight);
 
         return "redirect:/flight/list";
+    }
+
+    @ModelAttribute("gliders")
+    public List<Glider> findAllGliders(){
+        return gliderService.findAllGliders();
     }
 
 

@@ -34,7 +34,7 @@ public class Glider {
     @ColumnDefault("0")
     private Integer totalCycles;
 
-    @OneToMany
+    @OneToMany(mappedBy = "glider")
     private List<Flight> flightList = new ArrayList<>();
 
     @OneToMany(mappedBy = "glider")

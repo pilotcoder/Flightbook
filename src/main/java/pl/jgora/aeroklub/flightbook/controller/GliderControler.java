@@ -52,8 +52,7 @@ public class GliderControler {
     String findGliderByRegNumber(@RequestParam String regNumber, Model model){
        Glider glider = gliderService.findGliderByRegNumber(regNumber);
         model.addAttribute("glider", glider);
-        System.out.println(glider.toString());
-        System.out.println(glider.getLlpList().toString());
+
         return "glider/list";
     }
 }
