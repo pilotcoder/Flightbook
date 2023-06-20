@@ -58,7 +58,7 @@ public class FlightController {
     String findByDate(@RequestParam LocalDate flightDate, Model model){
         List<Flight> flights = flightService.findBydateOfFlight(flightDate);
         model.addAttribute("flights", flights);
-        System.out.println(flights.toString());
+
         return "flight/list";
     }
 
@@ -68,6 +68,16 @@ public class FlightController {
         model.addAttribute("flights", flights);
         return "flight/list";
     }
+
+    @GetMapping(path = "/flight/list", params = "gliderId")
+    String findAllFlightsByGliderId(Model model, @RequestParam Long gliderId){
+        List<Flight> flights = flightService.findAllFlightsByGliderId(gliderId);
+        model.addAttribute("flights", flights);
+        return "flight/list";
+    }
+
+
+
 
     @GetMapping(path = "/flight/delete", params = "id")
     public String deleteFlight(@RequestParam Long id){

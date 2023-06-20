@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.jgora.aeroklub.flightbook.entity.Flight;
@@ -25,7 +26,7 @@ public class GliderControler {
 
 
     @GetMapping(path = "/glider/add")
-    String showAddFlightForm(Model model) {
+    String showAddGliderForm(Model model) {
         model.addAttribute("glider", new Glider());
         return "glider/add";
     }
@@ -47,12 +48,25 @@ public class GliderControler {
 
 
     }
+    @GetMapping(path = "/glider/select")
+    String selectAllGliders(Model model){
+        List<Glider> gliderList = gliderService.findAllGliders();
+        model.addAttribute("gliderList", gliderList);
+        return "glider/select";
+    }
 
-    @GetMapping(path = "/glider/select", params = "regNumber")
-    String findGliderByRegNumber(@RequestParam String regNumber, Model model){
-       Glider glider = gliderService.findGliderByRegNumber(regNumber);
+
+
+    @GetMapping(path = "/glider/select", params = "gliderId")
+    String findGliderById(@RequestParam Long gliderId, Model model){
+       Glider glider = gliderService.findGliderById(gliderId);
         model.addAttribute("glider", glider);
 
         return "glider/list";
+    }
+
+    @ModelAttribute("gliders")
+    public List<Glider> findAllGliders(){
+        return gliderService.findAllGliders();
     }
 }

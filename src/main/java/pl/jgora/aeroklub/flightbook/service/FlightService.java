@@ -32,6 +32,10 @@ public class FlightService {
     public List<Flight> findAllFlights(){
         return flightRepository.findByOrderByDateOfFlightDesc();
     }
+        public List<Flight> findAllFlightsByGliderId(Long gliderId){
+        return flightRepository.findByGlider_IdOrderByDateOfFlightDesc(gliderId);
+    }
+
     public Flight findById(Long id){
         return flightRepository.findById(id).get();
     }

@@ -22,6 +22,10 @@ public class GliderService {
         return gliderRepository.findGliderByRegNumber(regNumber);
     }
 
+    public Glider findGliderById(Long id){
+        return gliderRepository.findById(id).get();
+    }
+
     public List<Glider> findAllGliders(){
         return gliderRepository.findAll();
     }

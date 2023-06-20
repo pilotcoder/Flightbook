@@ -18,6 +18,8 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
 
     public  List<Flight> findByOrderByDateOfFlightDesc();
 
+    public  List<Flight> findByGlider_IdOrderByDateOfFlightDesc(Long gliderId);
+
     }
 
 

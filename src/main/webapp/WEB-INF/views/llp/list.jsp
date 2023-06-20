@@ -10,7 +10,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-  <title>List of Flights on </title>
+  <title>List of Life Limited Parts on </title>
 </head>
 <body>
 
@@ -25,7 +25,7 @@
     <th>s/n</th>
     <th>Resurs:</th>
     <th>Data Ważności:</th>
-    <th>maksymalna liczba startów:</th>
+    <th>maksymalny resurs:</th>
   </tr>
   <c:forEach items="${llplist}" var="llp">
     <tr>
@@ -33,17 +33,17 @@
       <td>${llp.name}</td>
       <td>${llp.type}</td>
       <td>${llp.serialNumber}</td>
-      <td>${llp.maxLifetime}</td>
+      <td>${llp.lifeTimeInYears}</td>
       <td>${llp.dateOfExpiry}</td>
-      <td>${llp.maxCycles}</td>
-      <td><a href="<c:url value='/flight/edit?id=${flight.id}'/>">Popraw</a></td>
-      <td><a href="<c:url value='/flight/delete?id=${flight.id}'/>" onclick="return confirm('Czy na pewno chcesz usunąc ten lot? Nie będzie można już go odzyskać!')">Usuń</a></td>
+      <td> Godz:${llp.flightHrs} min:${llp.flightMins}</td>
+      <td><a href="<c:url value='/llp/edit?id=${llp.id}'/>">Popraw</a></td>
+      <td><a href="<c:url value='/llp/delete?id=${llp.id}'/>" onclick="return confirm('Czy na pewno chcesz usunąc ten lot? Nie będzie można już go odzyskać!')">Usuń</a></td>
     </tr>
   </c:forEach>
 </table>
 
-<a href="<c:url value='/flight/add'/>">Dodaj kolejny lot</a>
-<a href="<c:url value='/flight/search'/>">Wyszukaj loty</a>
-<a href="<c:url value='/flight/all'/>">Lista wszystkich lotów</a>
+<a href="<c:url value='/llp/add'/>">Dodaj kolejną część</a>
+
+
 </body>
 </html>

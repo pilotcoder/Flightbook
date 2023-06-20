@@ -23,7 +23,7 @@
         <th>części</th>
 
     </tr>
-<%--    <c:forEach items="${books}" var="book">--%>
+
         <tr>
             <td>${glider.id}</td>
             <td>${glider.type}</td>
@@ -37,7 +37,7 @@
             </td>
 <%--            <td>${book.pages}</td>--%>
 <%--            <td>${book.category.name}</td>--%>
-            <td><a href="<c:url value='/flight/list'/>">loty</a></td>
+            <td><a href="<c:url value='/flight/list?gliderId=${glider.id}'/>">loty</a></td>
 <%--            <td><a href="<c:url value='/book/remove?id=${book.id}'/>" onclick="return confirm('Are you sure?')">Remove</a></td>--%>
         </tr>
 <%--    </c:forEach>--%>
