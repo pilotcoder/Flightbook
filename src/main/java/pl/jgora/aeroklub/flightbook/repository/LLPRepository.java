@@ -12,5 +12,7 @@ public interface LLPRepository extends JpaRepository<LLP, Long> {
 
     public LLP findByName(String name);
 
-//    public List<LLP> findByOrderByDateOfExpiryDesc();
+    public List<LLP> findLLPByGlider_Id(Long gliderId);
+
+
 }

@@ -39,9 +39,9 @@ public class LLP {
     private LocalDate dateOfExpiry;
 
 
-    @Transient
+    @Column(insertable = false, updatable = false)
     private Integer flightHrs;
-    @Transient
+    @Column(insertable = false, updatable = false)
     private Integer flightMins;
 
 //    private Integer maxCycles;  // narazie nie ma nic co by żyło cyklami w szybowcu

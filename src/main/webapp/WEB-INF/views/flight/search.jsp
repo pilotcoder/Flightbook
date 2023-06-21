@@ -9,7 +9,7 @@
 <div>
     <p>Wybierz datę:</p>
     <form>
-        <label for="flightDate">Email</label><input id="flightDate" name="flightDate" type="date">
+        <label for="flightDate">Data Lotu</label><input id="flightDate" name="flightDate" type="date">
         <input type="submit" value="Search">
     </form>
 </div>
@@ -18,6 +18,6 @@
 
 </div>
 <hr/>
-<a href="<c:url value='/flight/all'/>">Back to list of all authors</a>
+
 </body>
 </html>

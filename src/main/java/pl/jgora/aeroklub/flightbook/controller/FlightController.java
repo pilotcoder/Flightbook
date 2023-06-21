@@ -42,9 +42,10 @@ public class FlightController {
             }
 
             flightService.save(flight);
+            Long id = flight.getGlider().getId();
 
 
-              return "redirect:/flight/list";
+              return "redirect:/flight/list?gliderId=" + id.toString();
         }
     }
 
@@ -101,8 +102,10 @@ public class FlightController {
         }
 
         flightService.editFlight(flight);
+        Long id = flight.getGlider().getId();
 
-        return "redirect:/flight/list";
+
+        return "redirect:/flight/list?gliderId=" + id.toString();
     }
 
     @ModelAttribute("gliders")

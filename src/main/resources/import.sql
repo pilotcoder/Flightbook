@@ -1,11 +1,11 @@
 insert into gliders(type, name, serialNumber, regNumber,totalFlightTime,totalcycles) values ('SZD-22C', 'Mucha std.', '665', 'SP-2279', 600, 50);
-insert into gliders(type, name, serialNumber, regNumber,totalFlightTime,totalcycles) values ('SZD-51-1', 'Junior.', 'B-2578', 'SP-3301', 1200, 120);
+-- insert into gliders(type, name, serialNumber, regNumber,totalFlightTime,totalcycles) values ('SZD-51-1', 'Junior.', 'B-2578', 'SP-3301', 1200, 120);
 
 
-insert into flights(dateOfFlight, flightTime, cycles) values ('2022-06-11', 65, 1);
--- insert into flights(dateOfFlight, flightHrs, flightMins,flightTime, cycles) values ('2022-06-12', 0, 5, 5, 1);
--- insert into flights(dateOfFlight, flightHrs, flightMins,flightTime, cycles) values ('2022-06-12', 1, 10,70, 1);
--- insert into flights(dateOfFlight, flightHrs, flightMins,flightTime, cycles) values ('2022-06-16', 5, 5, 305, 1);
+insert into flights(dateOfFlight, flightTime, cycles, glider_id) values ('2022-06-11', 65, 1, 1);
+insert into flights(dateOfFlight, flightTime, cycles, glider_id) values ('2022-06-12', 110, 5, 1);
+insert into flights(dateOfFlight, flightTime, cycles, glider_id) values ('2022-06-12', 456, 10, 1);
+insert into flights(dateOfFlight, flightTime, cycles, glider_id) values ('2022-06-16', 874, 5, 1);
 
 
 

@@ -48,25 +48,33 @@ public class GliderControler {
 
 
     }
-    @GetMapping(path = "/glider/select")
-    String selectAllGliders(Model model){
-        List<Glider> gliderList = gliderService.findAllGliders();
-        model.addAttribute("gliderList", gliderList);
-        return "glider/select";
-    }
-
+//    @GetMapping(path = "/glider/select")
+//    String selectAllGliders(Model model){
+//        List<Glider> gliderList = gliderService.findAllGliders();
+//        model.addAttribute("gliderList", gliderList);
+//        return "glider/select";
+//    }
 
 
     @GetMapping(path = "/glider/select", params = "gliderId")
-    String findGliderById(@RequestParam Long gliderId, Model model){
-       Glider glider = gliderService.findGliderById(gliderId);
+    String findGliderById(@RequestParam Long gliderId, Model model) {
+        Glider glider = gliderService.findGliderById(gliderId);
         model.addAttribute("glider", glider);
 
+        return "glider/select";
+    }
+
+    @GetMapping(path = "/glider/list")
+    public String findAllGliders(Model model) {
+        List<Glider> gliderList = gliderService.findAllGliders();
+        model.addAttribute("gliderList", gliderList);
         return "glider/list";
     }
 
-    @ModelAttribute("gliders")
-    public List<Glider> findAllGliders(){
-        return gliderService.findAllGliders();
-    }
+
+//    @ModelAttribute("gliders")
+//    public List<Glider> findAllGliders(){
+//        return gliderService.findAllGliders();
+//    }
+
 }

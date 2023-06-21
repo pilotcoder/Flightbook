@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<h3>Add book</h3>
+<h3>Dodaj część </h3>
 
 <form:form method="post" modelAttribute="part">
 

@@ -15,16 +15,45 @@
 </head>
 <body>
 
-<h3>Wybierz Szybowiec</h3>
+<h3>SZBOWIEC</h3>
+
+<table>
+  <tr>
+    <th>Lp.</th>
+    <th>TYP</th>
+    <th>nazwa</th>
+    <th>liczba lotów</th>
+    <th>nalot ogólny</th>
+    <th>części</th>
+
+  </tr>
+
+    <tr>
+      <td>${glider.id}</td>
+      <td>${glider.type}</td>
+      <td>${glider.name}</td>
+      <td>${glider.totalCycles}</td>
+      <td>${glider.totalFlightTime}</td>
+      <td>
+        <c:forEach items="${glider.llpList}" var="part">
+          ${part.name}
+        </c:forEach>
+      </td>
+
+      <td><a href="<c:url value='/flight/list?gliderId=${glider.id}'/>">loty</a></td>
+      <td><a href="<c:url value='/llp/list?gliderId=${glider.id}'/>">części</a></td>
+
+
+    </tr>
+
+</table>
 
 
 
 
 
 
-    <c:forEach items="${gliders}" var="gld">
-      ${gld.name}
-    </c:forEach>
+
 
 
 

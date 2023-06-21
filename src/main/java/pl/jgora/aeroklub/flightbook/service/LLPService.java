@@ -43,6 +43,10 @@ public class LLPService {
         llpRepository.save(llp);
     }
 
+    public List<LLP> findLLPByGlider_Id(Long gliderId){
+        return llpRepository.findLLPByGlider_Id(gliderId);
+    }
+
 }
 
 

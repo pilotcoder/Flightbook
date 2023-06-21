@@ -42,9 +42,9 @@ public class LLPController {
             }
 
             llpService.save(llp);
+            Long id = llp.getGlider().getId();
 
-
-            return "redirect:/llp/list";
+            return "redirect:/llp/list?gliderId=" + id.toString();
         }
     }
 
@@ -78,9 +78,18 @@ public class LLPController {
         }
 
        llpService.editLlp(llp);
+        Long id = llp.getGlider().getId();
 
-        return "redirect:/llp/list";
+        return "redirect:/llp/list?gliderId=" + id.toString();
     }
+
+    @GetMapping(path = "llp/list", params = "gliderId")
+    public String findLLPByGlider_Id(@RequestParam Long gliderId, Model model){
+        List<LLP> llpList = llpService.findLLPByGlider_Id(gliderId);
+        model.addAttribute("llplist", llpList);
+
+        return "llp/list";
+    };
 
     @ModelAttribute("gliders")
     public List<Glider> findAllGliders(){
