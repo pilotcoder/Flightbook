@@ -33,8 +33,8 @@ public class FlightController {
     }
 
     @PostMapping("/flight/add")
-    public String save(Flight flight,BindingResult bindingResult){
-          {
+    public String save(@Valid Flight flight,BindingResult bindingResult){
+
 
             if (bindingResult.hasErrors()) {
                 return "/flight/add";
@@ -47,7 +47,7 @@ public class FlightController {
 
               return "redirect:/flight/list?gliderId=" + id.toString();
         }
-    }
+
 
 
     @GetMapping(path = "/flight/search")
@@ -95,7 +95,7 @@ public class FlightController {
     }
 
     @PostMapping(path = "/flight/edit")
-    String processEditFlightForm( Flight flight, BindingResult bindingResult) {
+    String processEditFlightForm(@Valid Flight flight, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return "flight/edit";

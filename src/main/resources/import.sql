@@ -11,4 +11,4 @@ insert into flights(dateOfFlight, flightTime, cycles, glider_id) values ('2022-0
 
 
 insert into parts(name, type, serialNumber, flightHoursOfInstall,  valid, glider_id, lifeTimeInYears, dateOfInstall, lifeTimeInFH, maxLifeTimeInFH, dateOfExpiry) values ('zaczep', 'szd', 'R234', 2030*60, true, 1, 6, '2020-06-12', 1000, 2030*60 + 1000*60, '2026-06-12');
--- insert into parts(name, type, serialNumber, currentFH, valid, glider_id, lifeTimeInYears, dateOfInstall, lifeTimeInFH) values ('pasy', 'J5.00.00', '2014', 2030, true, 1, 15, '2014-02-11', 1500);
+insert into parts(name, type, serialNumber, flightHoursOfInstall,  valid, glider_id, lifeTimeInYears, dateOfInstall, lifeTimeInFH, maxLifeTimeInFH, dateOfExpiry) values ('pasy', 'J5.00.00', '1.14.55', 2030*60, true, 1, 12, '2014-04-03', 1000, 2030*60 + 1000*60, '2029-04-03');

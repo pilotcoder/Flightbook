@@ -1,5 +1,6 @@
 package pl.jgora.aeroklub.flightbook.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,28 +25,22 @@ public class LLPController {
     private final GliderService gliderService;
 
 
-    // wyswietlenie formularza dodawania ksiazki
+    // wyswietlenie formularza dodawania
     @GetMapping(path = "/llp/add")
     String showAddLLPForm(Model model) {
-        model.addAttribute("part", new LLP());
+        model.addAttribute("llp", new LLP());
         return "llp/add";
     }
 
 
     @PostMapping("/llp/add")
-    public String save(LLP llp,BindingResult bindingResult){
-        {
-
+    public String save(@ModelAttribute("llp")@Valid LLP llp, BindingResult bindingResult){
             if (bindingResult.hasErrors()) {
-                return "/llp/add";
-
+                return "llp/add";
             }
-
             llpService.save(llp);
             Long id = llp.getGlider().getId();
-
             return "redirect:/llp/list?gliderId=" + id.toString();
-        }
     }
 
     @GetMapping("/llp/list")

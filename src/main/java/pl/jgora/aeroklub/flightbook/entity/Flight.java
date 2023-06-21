@@ -1,6 +1,7 @@
 package pl.jgora.aeroklub.flightbook.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,6 +22,7 @@ public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @DateTimeFormat(pattern = "yyy-MM-dd")
     private LocalDate dateOfFlight;
     @ColumnDefault("0")

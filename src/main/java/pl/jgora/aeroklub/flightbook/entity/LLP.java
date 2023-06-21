@@ -1,7 +1,7 @@
 package pl.jgora.aeroklub.flightbook.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,32 +19,35 @@ public class LLP {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
+    @NotBlank
     private String name;
-    @NotNull
+    @NotBlank
     private String type;
     private String serialNumber;
     @ColumnDefault("true")
     private boolean valid;
     @NotNull
+
     private Integer lifeTimeInYears;
-    @NotNull
+
     @DateTimeFormat(pattern = "yyy-MM-dd")
     private LocalDate dateOfInstall;
     @NotNull
+
     private Integer lifeTimeInFH;
 
     private Integer flightHoursOfInstall;
+
     private Integer maxLifeTimeInFH;
     private LocalDate dateOfExpiry;
 
 
     @Column(insertable = false, updatable = false)
     private Integer flightHrs;
+
     @Column(insertable = false, updatable = false)
     private Integer flightMins;
 
-//    private Integer maxCycles;  // narazie nie ma nic co by żyło cyklami w szybowcu
 
     @ManyToOne
     private Glider glider;
