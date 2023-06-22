@@ -1,6 +1,7 @@
 package pl.jgora.aeroklub.flightbook.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,16 +23,18 @@ public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotNull
     @DateTimeFormat(pattern = "yyy-MM-dd")
     private LocalDate dateOfFlight;
     @ColumnDefault("0")
     private Integer flightTime;
+
     @Column(insertable = false, updatable = false)// z @Transiend nie działało przy update
     private Integer flightHrs;
+
     @Column(insertable = false, updatable = false)
     private Integer flightMins;
-
+    @Min(value = 1)
     private Integer cycles;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -47,7 +50,7 @@ public class Flight {
     @PostLoad
     private void loadTime() {
         flightHrs = flightTime / 60;
-       flightMins = flightTime % 60;
+        flightMins = flightTime % 60;
 
     }
 }

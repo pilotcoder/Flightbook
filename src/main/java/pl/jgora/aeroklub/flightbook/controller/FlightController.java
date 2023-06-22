@@ -33,11 +33,11 @@ public class FlightController {
     }
 
     @PostMapping("/flight/add")
-    public String save(@Valid Flight flight,BindingResult bindingResult){
+    public String save(@ModelAttribute("flight")@Valid Flight flight,BindingResult bindingResult){
 
 
             if (bindingResult.hasErrors()) {
-                return "/flight/add";
+                return "flight/invalid";
 
             }
 
@@ -95,10 +95,10 @@ public class FlightController {
     }
 
     @PostMapping(path = "/flight/edit")
-    String processEditFlightForm(@Valid Flight flight, BindingResult bindingResult) {
+    String processEditFlightForm(@ModelAttribute("flight")@Valid Flight flight, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "flight/edit";
+            return "flight/invalid";
         }
 
         flightService.editFlight(flight);

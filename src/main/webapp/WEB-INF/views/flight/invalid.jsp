@@ -25,6 +25,8 @@
     <div>godziny: <form:input path="flightHrs" type="number" min="0" max="24"/></div>
     <div>minuty: <form:input path="flightMins" type="number" min="0" max="59"/></div>
     <div>Ilość lotów: <form:input path="cycles" type="number" min="1" max="999"/></div>
+    <form:hidden path="glider.id"/>
+    <form:errors path="*" />
 
 
     <input type="submit" value="Dodaj lot">
