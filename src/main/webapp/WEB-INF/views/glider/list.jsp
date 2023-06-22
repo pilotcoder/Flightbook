@@ -9,32 +9,28 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>All books</title>
+    <title>Elektroniczna książka płatowca</title>
 </head>
 <body>
 
 <table>
     <tr>
-        <th>Lp.</th>
+
         <th>TYP</th>
-        <th>nazwa</th>
-        <th>liczba lotów</th>
-        <th>nalot ogólny</th>
-        <th>części</th>
+        <th>NAZWA</th>
+        <th>ZNAKI</th>
+
 
     </tr>
 <c:forEach items="${gliderList}" var="glider">
         <tr>
-            <td>${glider.id}</td>
+
             <td>${glider.type}</td>
             <td>${glider.name}</td>
-            <td>${glider.totalCycles}</td>
-            <td>${glider.totalFlightTime}</td>
-            <td>
-                <c:forEach items="${glider.llpList}" var="part">
-                    ${part.name}
-                </c:forEach>
-            </td>
+            <td>${glider.regNumber}</td>
+
+
+
 
             <td><a href="<c:url value='/glider/select?gliderId=${glider.id}'/>">wybierz</a></td>
 

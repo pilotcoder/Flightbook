@@ -19,32 +19,51 @@
 
 <table>
   <tr>
-    <th>Lp.</th>
+
     <th>TYP</th>
     <th>nazwa</th>
+    <th>Znaki rej.</th>
+    <th>S/N</th>
+    <th>rok budowy</th>
     <th>liczba lotów</th>
-    <th>nalot ogólny</th>
+    <th>nalot ogólny (Minuty)</th>
+    <th>nalot ogólny Godz.</th>
+    <th>minut</th>
+
+
     <th>części</th>
 
   </tr>
 
     <tr>
-      <td>${glider.id}</td>
+
       <td>${glider.type}</td>
       <td>${glider.name}</td>
+      <td>${glider.regNumber}</td>
+      <td>${glider.serialNumber}</td>
+      <td>${glider.yearOfBuild}</td>
       <td>${glider.totalCycles}</td>
       <td>${glider.totalFlightTime}</td>
+      <td>${glider.flightHrs}</td>
+      <td>${glider.flightMins}</td>
       <td>
         <c:forEach items="${glider.llpList}" var="part">
           ${part.name}
         </c:forEach>
       </td>
-
-      <td><a href="<c:url value='/flight/list?gliderId=${glider.id}'/>">loty</a></td>
-      <td><a href="<c:url value='/llp/list?gliderId=${glider.id}'/>">części</a></td>
-
-
     </tr>
+  <tr>
+    <td><a href="<c:url value='/flight/list?gliderId=${glider.id}'/>">loty</a></td>
+    <td><a href="<c:url value='/llp/list?gliderId=${glider.id}'/>">części</a></td>
+
+  </tr>
+
+
+
+
+
+
+
 
 </table>
 

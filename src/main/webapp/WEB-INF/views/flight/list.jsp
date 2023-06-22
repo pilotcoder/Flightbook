@@ -36,7 +36,7 @@
       <td><a href="<c:url value='/flight/delete?id=${flight.id}'/>" onclick="return confirm('Czy na pewno chcesz usunąc ten lot? Nie będzie można już go odzyskać!')">Usuń</a></td>
     </tr>
   <tr>
-    <td><a href="<c:url value='/glider/select?gliderId=${flight.glider.id}'/>">wróć do szybowca</a></td>
+
   </tr>
   </c:forEach>
 </table>

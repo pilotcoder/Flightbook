@@ -26,13 +26,18 @@ public class Glider {
     private String name;
     private String serialNumber;
     private String regNumber;
-    private String yearOfBulid;
+    private String yearOfBuild;
     private Integer initTotalFlightTime;
     private Integer initTotalCycles;
     @ColumnDefault("0")
     private Integer totalFlightTime;
     @ColumnDefault("0")
     private Integer totalCycles;
+    @Column(insertable = false, updatable = false)// z @Transiend nie działało przy update
+    private Integer flightHrs;
+
+    @Column(insertable = false, updatable = false)
+    private Integer flightMins;
 
     @OneToMany(mappedBy = "glider")
     private List<Flight> flightList = new ArrayList<>();
@@ -40,6 +45,18 @@ public class Glider {
     @OneToMany(mappedBy = "glider")
     private List<LLP> llpList = new ArrayList<>();
 
+    @PostLoad
+    public void tottalTimeCount() {
+        int temp = 0;
+        for (Flight flight : flightList) {
+            temp = temp + flight.getFlightTime();
+        }
+        totalFlightTime = temp;
+
+        flightHrs = totalFlightTime / 60;
+        flightMins = totalFlightTime % 60;
+
+    }
 
 
 }
