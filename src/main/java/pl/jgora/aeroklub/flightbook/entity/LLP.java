@@ -30,6 +30,7 @@ public class LLP {
 
     private Integer lifeTimeInYears;
 
+@NotNull
     @DateTimeFormat(pattern = "yyy-MM-dd")
     private LocalDate dateOfInstall;
     @NotNull

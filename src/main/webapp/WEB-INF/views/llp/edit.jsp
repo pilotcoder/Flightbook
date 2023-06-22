@@ -22,7 +22,7 @@
   <div>nazwa: <form:input path="name"/><form:errors path="name" cssClass="error"/></div>
   <div>typ: <form:input path="type"/><form:errors path="type" cssClass="error"/></div>
   <div>S/N: <form:input path="serialNumber"/><form:errors path="serialNumber" cssClass="error"/></div>
-
+<%--  <div>do szybowca: <form:radiobuttons path="glider" items="${gliders}" itemLabel="id" itemValue="id"/><form:errors path="glider" cssClass="error"/></div>--%>
   <div>żywotność: <form:input path="lifeTimeInYears" type="number" min="1" placeholder="podaj w latach"/><form:errors path="lifeTimeInYears" cssClass="error"/></div>
   <div>resurs: <form:input path="lifeTimeInFH" type="number" min="1" placeholder="podaj w godzinach"/><form:errors path="lifeTimeInFH" cssClass="error"/></div>
   <div>nalot przy zabudowie: </div>

@@ -28,6 +28,9 @@
   <form:hidden path="glider.id"/>
   <form:hidden path="id"/>
 
+
+
+
   <input type="submit" value="Aktualizuj">
 </form:form>
 
