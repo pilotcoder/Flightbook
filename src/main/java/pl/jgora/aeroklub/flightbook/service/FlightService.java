@@ -23,29 +23,36 @@ public class FlightService {
 
     private final FlightRepository flightRepository;
 
-    public void save(Flight flight){flightRepository.save(flight);}
+    public void save(Flight flight) {
+        flightRepository.save(flight);
+    }
 
-    public List<Flight> findBydateOfFlight(LocalDate date){
+    public List<Flight> findBydateOfFlight(LocalDate date) {
         return flightRepository.findBydateOfFlight(date);
     }
 
-    public List<Flight> findAllFlights(){
+    public List<Flight> findAllFlights() {
         return flightRepository.findByOrderByDateOfFlightDesc();
     }
-        public List<Flight> findAllFlightsByGliderId(Long gliderId){
+
+    public List<Flight> findAllFlightsByGliderId(Long gliderId) {
         return flightRepository.findByGlider_IdOrderByDateOfFlightDesc(gliderId);
     }
 
-    public Flight findById(Long id){
+    public Flight findById(Long id) {
         return flightRepository.findById(id).get();
     }
 
-    public void deleteById(Long id){
+    public void deleteById(Long id) {
         flightRepository.deleteById(id);
     }
 
-   public void editFlight(Flight flight){
+    public void editFlight(Flight flight) {
         flightRepository.save(flight);
-   }
+    }
+
+    public List<Flight> findByGlider_IdAndAndDateOfFlightBetween(Long gliderId, LocalDate beginDate, LocalDate endDate) {
+         return flightRepository.findByGlider_IdAndAndDateOfFlightBetween(gliderId, beginDate, endDate);
+    }
 
 }

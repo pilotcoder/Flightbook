@@ -20,6 +20,8 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
 
     public  List<Flight> findByGlider_IdOrderByDateOfFlightDesc(Long gliderId);
 
+    public List<Flight> findByGlider_IdAndAndDateOfFlightBetween(Long gliderId, LocalDate beginDate, LocalDate endDate);
+
     }
 
 

@@ -1,6 +1,10 @@
 package pl.jgora.aeroklub.flightbook.controller;
 
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -16,6 +20,8 @@ import pl.jgora.aeroklub.flightbook.entity.Glider;
 import pl.jgora.aeroklub.flightbook.service.FlightService;
 import pl.jgora.aeroklub.flightbook.service.GliderService;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -63,6 +69,15 @@ public class FlightController {
         return "flight/list";
     }
 
+    @GetMapping(path = "/flight/select", params = {"glider_id, beginDate, endDate"})
+    String findFlightsBetween (@RequestParam Long glider_id, @RequestParam LocalDate begindate, @RequestParam LocalDate endDate, Model model) throws DocumentException, FileNotFoundException {
+        List<Flight> flights = flightService.findByGlider_IdAndAndDateOfFlightBetween(glider_id, begindate, endDate);
+        model.addAttribute("flights", flights);
+        createPdf(flights, "proba");
+        return "/flight/list";
+
+    }
+
     @GetMapping("/flight/list")
     String findAllFlights(Model model){
         List<Flight> flights = flightService.findAllFlights();
@@ -76,8 +91,6 @@ public class FlightController {
         model.addAttribute("flights", flights);
         return "flight/list";
     }
-
-
 
 
     @GetMapping(path = "/flight/delete", params = "id")
@@ -111,6 +124,25 @@ public class FlightController {
     @ModelAttribute("gliders")
     public List<Glider> findAllGliders(){
         return gliderService.findAllGliders();
+    }
+
+    public static void createPdf(List<Flight> flights, String filename) throws FileNotFoundException, DocumentException {
+
+         filename = "test.pdf";
+        Document document = new Document();
+
+        PdfWriter.getInstance(document, new FileOutputStream(filename));
+
+
+        document.open();
+
+        Paragraph paragraph = new  Paragraph("testowanie pdfa");
+        document.add(paragraph);
+
+
+        document.close();
+
+        System.out.println("koniec");
     }
 
 
