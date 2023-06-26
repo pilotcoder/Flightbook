@@ -51,8 +51,8 @@ public class FlightService {
         flightRepository.save(flight);
     }
 
-    public List<Flight> findByGlider_IdAndAndDateOfFlightBetween(Long gliderId, LocalDate beginDate, LocalDate endDate) {
-         return flightRepository.findByGlider_IdAndAndDateOfFlightBetween(gliderId, beginDate, endDate);
+    public List<Flight> findByDateOfFlightBetween(LocalDate beginDate, LocalDate endDate) {
+         return flightRepository.findByDateOfFlightBetween(beginDate, endDate);
     }
 
 }

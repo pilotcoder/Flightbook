@@ -52,6 +52,13 @@
         </c:forEach>
       </td>
     </tr>
+  h3>Wyszukaj loty:</h3>
+  <div>
+    <p>Wybierz datę:</p>
+    <form method="GET" action="/flight/search">
+      <label for="flightDate">Data Lotu</label><input id="flightDate" name="flightDate" type="date">
+      <input type="submit" value="Search">
+    </form>
   <tr>
     <td><a href="<c:url value='/flight/list?gliderId=${glider.id}'/>">loty</a></td>
     <td><a href="<c:url value='/llp/list?gliderId=${glider.id}'/>">części</a></td>

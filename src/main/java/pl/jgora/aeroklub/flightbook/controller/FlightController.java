@@ -4,6 +4,10 @@ package pl.jgora.aeroklub.flightbook.controller;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfPTableHeader;
 import com.itextpdf.text.pdf.PdfWriter;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -62,19 +66,25 @@ public class FlightController {
 
     }
     @GetMapping(path = "/flight/search", params = "flightDate")
-    String findByDate(@RequestParam LocalDate flightDate, Model model){
+    String findByDate(@RequestParam LocalDate flightDate, Model model) throws DocumentException, FileNotFoundException {
         List<Flight> flights = flightService.findBydateOfFlight(flightDate);
         model.addAttribute("flights", flights);
+        createPdf(flights, "proba");
 
         return "flight/list";
     }
 
-    @GetMapping(path = "/flight/select", params = {"glider_id, beginDate, endDate"})
-    String findFlightsBetween (@RequestParam Long glider_id, @RequestParam LocalDate begindate, @RequestParam LocalDate endDate, Model model) throws DocumentException, FileNotFoundException {
-        List<Flight> flights = flightService.findByGlider_IdAndAndDateOfFlightBetween(glider_id, begindate, endDate);
+    @GetMapping(path = "/flight/select")
+    String selectToPdfForm(){
+        return "flight/select";
+    }
+    @GetMapping(path = "/flight/select", params = {"beginDate, endDate"})
+    String findFlightsBetween (@RequestParam LocalDate beginDate, @RequestParam LocalDate endDate, Model model) throws DocumentException, FileNotFoundException {
+        List<Flight> flights = flightService.findByDateOfFlightBetween(beginDate, endDate);
         model.addAttribute("flights", flights);
+        System.out.println("poszło");
         createPdf(flights, "proba");
-        return "/flight/list";
+        return "flight/list";
 
     }
 
@@ -86,9 +96,10 @@ public class FlightController {
     }
 
     @GetMapping(path = "/flight/list", params = "gliderId")
-    String findAllFlightsByGliderId(Model model, @RequestParam Long gliderId){
+    String findAllFlightsByGliderId(Model model, @RequestParam Long gliderId) throws DocumentException, FileNotFoundException {
         List<Flight> flights = flightService.findAllFlightsByGliderId(gliderId);
         model.addAttribute("flights", flights);
+        createPdf(flights, "proba");
         return "flight/list";
     }
 
@@ -138,6 +149,37 @@ public class FlightController {
 
         Paragraph paragraph = new  Paragraph("testowanie pdfa");
         document.add(paragraph);
+        PdfPTable table  = new PdfPTable(4);
+
+
+        if (flights != null){
+
+            PdfPCell header = new PdfPCell(new Phrase("Data lotu:"));
+            table.addCell(header);
+            header = new PdfPCell(new Phrase("Czas lotu godz:"));
+            table.addCell(header);
+            header = new PdfPCell(new Phrase("Czas lotu min:"));
+            table.addCell(header);
+
+            header = new PdfPCell(new Phrase("liczba lotów::"));
+            table.addCell(header);
+
+            for (Flight flight: flights) {
+                table.addCell(flight.getDateOfFlight().toString());
+                table.addCell(flight.getFlightHrs().toString());
+                table.addCell(flight.getFlightMins().toString());
+                table.addCell(flight.getCycles().toString());
+
+            }
+        }else{
+            table.addCell("lista jest pusta");
+        }
+        document.add(table);
+
+
+
+
+
 
 
         document.close();

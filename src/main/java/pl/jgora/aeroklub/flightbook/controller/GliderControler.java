@@ -1,5 +1,12 @@
 package pl.jgora.aeroklub.flightbook.controller;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,10 +14,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import pl.jgora.aeroklub.flightbook.entity.Flight;
 import pl.jgora.aeroklub.flightbook.entity.Glider;
 import pl.jgora.aeroklub.flightbook.service.FlightService;
 import pl.jgora.aeroklub.flightbook.service.GliderService;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -61,6 +72,16 @@ public class GliderControler {
         return "glider/select";
     }
 
+//    @PostMapping(path = "/glider/select")//, params = {"gliderId, beginDate, endDate"})
+//    String findFlightsBetween (@RequestParam Long gliderId, @RequestParam LocalDate begindate, @RequestParam LocalDate endDate, Model model) throws DocumentException, FileNotFoundException {
+//        List<Flight> flights = flightService.findByGlider_IdAndAndDateOfFlightBetween(gliderId, begindate, endDate);
+//        model.addAttribute("flights", flights);
+//       createPdf(flights, "proba");
+//        System.out.println("udało");
+//        return "/flight/list";
+//
+//    }
+
     @GetMapping(path = "/glider/list")
     public String findAllGliders(Model model) {
         List<Glider> gliderList = gliderService.findAllGliders();
@@ -73,5 +94,56 @@ public class GliderControler {
 //    public List<Glider> findAllGliders(){
 //        return gliderService.findAllGliders();
 //    }
+public static void createPdf(List<Flight> flights, String filename) throws FileNotFoundException, DocumentException {
+
+    filename = "test.pdf";
+    Document document = new Document();
+
+    PdfWriter.getInstance(document, new FileOutputStream(filename));
+
+
+    document.open();
+
+    Paragraph paragraph = new  Paragraph("testowanie pdfa");
+    document.add(paragraph);
+    PdfPTable table  = new PdfPTable(4);
+
+
+    if (flights != null){
+
+        PdfPCell header = new PdfPCell(new Phrase("Data lotu:"));
+        table.addCell(header);
+        header = new PdfPCell(new Phrase("Czas lotu godz:"));
+        table.addCell(header);
+        header = new PdfPCell(new Phrase("Czas lotu min:"));
+        table.addCell(header);
+
+        header = new PdfPCell(new Phrase("liczba lotów::"));
+        table.addCell(header);
+
+        for (Flight flight: flights) {
+            table.addCell(flight.getDateOfFlight().toString());
+            table.addCell(flight.getFlightHrs().toString());
+            table.addCell(flight.getFlightMins().toString());
+            table.addCell(flight.getCycles().toString());
+
+        }
+    }else{
+        table.addCell("lista jest pusta");
+    }
+    document.add(table);
+
+
+
+
+
+
+
+    document.close();
+
+    System.out.println("koniec");
+}
+
+
 
 }

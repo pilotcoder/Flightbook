@@ -23,7 +23,7 @@
   <div>Nazwa: <form:input path="name"/><form:errors path="name" cssClass="error"/></div>
   <div>Numer Seryjny: <form:input path="serialNumber"/><form:errors path="serialNumber" cssClass="error"/></div>
   <div>Numer Seryjny: <form:input path="regNumber"/><form:errors path="regNumber" cssClass="error"/></div>
-  <div>Numer Seryjny: <form:input path="yearOfBulid" type="number" min="1900"/><form:errors path="serialNumber" cssClass="error"/></div>
+  <div>Numer Seryjny: <form:input path="yearOfBuild" type="number" min="1900"/><form:errors path="serialNumber" cssClass="error"/></div>
   <div>Numer Seryjny: <form:input path="initTotalFlightTime" type="number"/><form:errors path="initTotalFlightTime" cssClass="error"/></div>
   <div>Numer Seryjny: <form:input path="initTotalCycles" type="number"/><form:errors path="initTotalCycles" cssClass="error"/></div>
 
