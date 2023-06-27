@@ -7,6 +7,7 @@ import lombok.ToString;
 import org.hibernate.annotations.ColumnDefault;
 
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +40,8 @@ public class Glider {
     @Column(insertable = false, updatable = false)
     private Integer flightMins;
 
+    private LocalDate oneMonth = LocalDate.now().plusDays(30);
+
     @OneToMany(mappedBy = "glider")
     private List<Flight> flightList = new ArrayList<>();
 
@@ -55,6 +58,8 @@ public class Glider {
 
         flightHrs = totalFlightTime / 60;
         flightMins = totalFlightTime % 60;
+
+
 
     }
 

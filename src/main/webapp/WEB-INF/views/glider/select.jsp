@@ -52,6 +52,21 @@
         </c:forEach>
       </td>
     </tr>
+  <tr>
+    <c:forEach items="${glider.llpList}" var="part">
+
+      <c:choose>
+        <c:when test="${part.valid==false}">
+          ${part.name}, ${part.type}, ${part.serialNumber} kończy ważność za mniej niż 30 dni!!!
+        </c:when>
+        <c:when test="${part.maxLifeTimeInFH < glider.totalFlightTime} - 60*100">
+          ${part.name}, ${part.type}, ${part.serialNumber} kończy ważność za mniej niź 100 godzin
+        </c:when>
+        <c:otherwise>
+        </c:otherwise>
+      </c:choose>
+    </c:forEach>
+  </tr>
   h3>Wyszukaj loty:</h3>
   <div>
     <p>Wybierz datę:</p>

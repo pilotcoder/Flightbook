@@ -68,7 +68,18 @@ public class LLP {
         flightHrs = maxLifeTimeInFH / 60;
        flightMins = maxLifeTimeInFH % 60;
 
+            LocalDate nextDate = LocalDate.now().plusDays(30);
+
+            if (dateOfExpiry.isBefore(nextDate)) {
+                valid = false;
+            }
     }
+
+
+
+
+
+
 
 
 }
