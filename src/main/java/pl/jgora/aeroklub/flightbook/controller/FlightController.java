@@ -27,6 +27,7 @@ import pl.jgora.aeroklub.flightbook.service.GliderService;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -78,12 +79,14 @@ public class FlightController {
     String selectToPdfForm(){
         return "flight/select";
     }
-    @GetMapping(path = "/flight/select", params = {"beginDate, endDate"})
+    @GetMapping(path = "/flight/select", params = {"beginDate", "endDate"} )
     String findFlightsBetween (@RequestParam LocalDate beginDate, @RequestParam LocalDate endDate, Model model) throws DocumentException, FileNotFoundException {
         List<Flight> flights = flightService.findByDateOfFlightBetween(beginDate, endDate);
         model.addAttribute("flights", flights);
-        System.out.println("poszło");
-        createPdf(flights, "proba");
+        LocalDateTime now = LocalDateTime.now();
+        String filename = now.getNano() +  "-lista.pdf" ;
+        System.out.println(filename);
+        createPdf(flights, filename);
         return "flight/list";
 
     }
@@ -139,10 +142,11 @@ public class FlightController {
 
     public static void createPdf(List<Flight> flights, String filename) throws FileNotFoundException, DocumentException {
 
-         filename = "test.pdf";
+
         Document document = new Document();
 
         PdfWriter.getInstance(document, new FileOutputStream(filename));
+
 
 
         document.open();

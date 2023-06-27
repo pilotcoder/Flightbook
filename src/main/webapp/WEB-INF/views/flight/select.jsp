@@ -15,11 +15,12 @@ h3>Wyszukaj loty:</h3>
 <div>
     <p>Wybierz datę:</p>
     <form>
-        <label for="beginDate">Data Lotu od </label><input id="beginDate" name="beginDate" type="date">
-        <label for="endDate">Data Lotu od </label><input id="endDate" name="endDate" type="date">
+        Data Lotu od <input  name="beginDate" type="date">
+        Data Lotu od <input  name="endDate" type="date">
 
         <input type="submit" value="Search">
     </form>
+</div>
 
 </body>
 </html>

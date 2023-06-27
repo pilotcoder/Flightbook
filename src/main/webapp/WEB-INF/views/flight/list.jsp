@@ -43,6 +43,7 @@
 
 <a href="<c:url value='/flight/add'/>">Dodaj lot</a>
 <a href="<c:url value='/flight/search'/>">Wyszukaj loty</a>
+<a href="<c:url value='/flight/select'/>">Wyszukaj loty i zapisz do pdf</a>
 
 
 
