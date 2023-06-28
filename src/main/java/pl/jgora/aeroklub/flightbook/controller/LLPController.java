@@ -23,27 +23,24 @@ public class LLPController {
     private final LLPService llpService;
     private final GliderService gliderService;
 
-
-    // wyswietlenie formularza dodawania
     @GetMapping(path = "/llp/add")
     String showAddLLPForm(Model model) {
         model.addAttribute("llp", new LLP());
         return "llp/add";
     }
 
-
     @PostMapping("/llp/add")
-    public String save(@ModelAttribute("llp")@Valid LLP llp, BindingResult bindingResult){
-            if (bindingResult.hasErrors()) {
-                return "llp/invalid";
-            }
-            llpService.save(llp);
-            Long id = llp.getGlider().getId();
-            return "redirect:/llp/list?gliderId=" + id.toString();
+    public String save(@ModelAttribute("llp") @Valid LLP llp, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "llp/invalid";
+        }
+        llpService.save(llp);
+        Long id = llp.getGlider().getId();
+        return "redirect:/llp/list?gliderId=" + id.toString();
     }
 
     @GetMapping("/llp/list")
-    String findAllLLP(Model model){
+    String findAllLLP(Model model) {
         List<LLP> llpList = llpService.findAll();
         model.addAttribute("llplist", llpList);
 
@@ -51,7 +48,7 @@ public class LLPController {
     }
 
     @GetMapping(path = "/llp/delete", params = "id")
-    public String deleteLLP(@RequestParam Long id){
+    public String deleteLLP(@RequestParam Long id) {
         llpService.deleteById(id);
 
         return "redirect:/glider/list";
@@ -66,32 +63,25 @@ public class LLPController {
     }
 
     @PostMapping(path = "/llp/edit")
-    String processEditLLPForm(@ModelAttribute("llp")@Valid LLP llp, BindingResult bindingResult) {
+    String processEditLLPForm(@ModelAttribute("llp") @Valid LLP llp, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return "llp/edit";
         }
-
-       llpService.editLlp(llp);
+        llpService.editLlp(llp);
         Long id = llp.getGlider().getId();
-
         return "redirect:/llp/list?gliderId=" + id.toString();
     }
 
     @GetMapping(path = "llp/list", params = "gliderId")
-    public String findLLPByGlider_Id(@RequestParam Long gliderId, Model model){
+    public String findLLPByGlider_Id(@RequestParam Long gliderId, Model model) {
         List<LLP> llpList = llpService.findLLPByGlider_Id(gliderId);
         model.addAttribute("llplist", llpList);
-
         return "llp/list";
-    };
-
-    @ModelAttribute("gliders")
-    public List<Glider> findAllGliders(){
-        return gliderService.findAllGliders();
     }
 
-
-
-
+    @ModelAttribute("gliders")
+    public List<Glider> findAllGliders() {
+        return gliderService.findAllGliders();
+    }
 }

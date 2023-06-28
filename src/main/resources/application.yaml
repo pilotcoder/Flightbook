@@ -17,7 +17,7 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
-  security:
-    user:
-      name: Marcin
-      password: Marcin
+#  security:
+#    user:
+#      name: Marcin
+#      password: Marcin

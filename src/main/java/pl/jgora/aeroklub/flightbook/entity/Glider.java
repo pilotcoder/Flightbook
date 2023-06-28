@@ -40,7 +40,7 @@ public class Glider {
     @Column(insertable = false, updatable = false)
     private Integer flightMins;
 
-    private LocalDate oneMonth = LocalDate.now().plusDays(30);
+    private LocalDate alertIntervalInDays = LocalDate.now().plusDays(30);
 
     @OneToMany(mappedBy = "glider")
     private List<Flight> flightList = new ArrayList<>();
@@ -49,7 +49,7 @@ public class Glider {
     private List<LLP> llpList = new ArrayList<>();
 
     @PostLoad
-    public void tottalTimeCount() {
+    public void totalTimeCount() {
         int temp = 0;
         for (Flight flight : flightList) {
             temp = temp + flight.getFlightTime();

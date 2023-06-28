@@ -45,17 +45,11 @@ public class FlightController {
 
     @PostMapping("/flight/add")
     public String save(@ModelAttribute("flight")@Valid Flight flight,BindingResult bindingResult){
-
-
             if (bindingResult.hasErrors()) {
                 return "flight/invalid";
-
             }
-
             flightService.save(flight);
             Long id = flight.getGlider().getId();
-
-
               return "redirect:/flight/list?gliderId=" + id.toString();
         }
 
@@ -84,7 +78,7 @@ public class FlightController {
         List<Flight> flights = flightService.findByDateOfFlightBetween(beginDate, endDate);
         model.addAttribute("flights", flights);
         LocalDateTime now = LocalDateTime.now();
-        String filename = now.getNano() +  "-lista.pdf" ;
+        String filename = now.getNano() +  "_lista.pdf" ;
         System.out.println(filename);
         createPdf(flights, filename);
         return "flight/list";

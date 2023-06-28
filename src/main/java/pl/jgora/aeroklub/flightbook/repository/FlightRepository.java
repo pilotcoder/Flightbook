@@ -9,17 +9,9 @@ import java.util.List;
 
 public interface FlightRepository extends JpaRepository<Flight, Long> {
 
-
-
-
-
     public List<Flight> findBydateOfFlight(LocalDate dateOfFlight);
-
-
     public  List<Flight> findByOrderByDateOfFlightDesc();
-
     public  List<Flight> findByGlider_IdOrderByDateOfFlightDesc(Long gliderId);
-
     public List<Flight> findByDateOfFlightBetween (LocalDate beginDate, LocalDate endDate);
 
     }

@@ -27,11 +27,8 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class GliderControler {
-
     private final GliderService gliderService;
-
     private final FlightService flightService;
-
 
     @GetMapping(path = "/glider/add")
     String showAddGliderForm(Model model) {
@@ -41,28 +38,13 @@ public class GliderControler {
 
     @PostMapping("/glider/add")
     public void save(Glider glider, BindingResult bindingResult) {
-        {
 
-            if (bindingResult.hasErrors()) {
-                System.out.println("nie zapisało");
-
-            }
-
-            gliderService.save(glider);
-
-            System.out.println("zapisało");
-            ;
+        if (bindingResult.hasErrors()) {
+            System.out.println("nie zapisało");
         }
-
-
+        gliderService.save(glider);
+        System.out.println("zapisało");
     }
-//    @GetMapping(path = "/glider/select")
-//    String selectAllGliders(Model model){
-//        List<Glider> gliderList = gliderService.findAllGliders();
-//        model.addAttribute("gliderList", gliderList);
-//        return "glider/select";
-//    }
-
 
     @GetMapping(path = "/glider/select", params = "gliderId")
     String findGliderById(@RequestParam Long gliderId, Model model) {
@@ -72,78 +54,11 @@ public class GliderControler {
         return "glider/select";
     }
 
-//    @PostMapping(path = "/glider/select")//, params = {"gliderId, beginDate, endDate"})
-//    String findFlightsBetween (@RequestParam Long gliderId, @RequestParam LocalDate begindate, @RequestParam LocalDate endDate, Model model) throws DocumentException, FileNotFoundException {
-//        List<Flight> flights = flightService.findByGlider_IdAndAndDateOfFlightBetween(gliderId, begindate, endDate);
-//        model.addAttribute("flights", flights);
-//       createPdf(flights, "proba");
-//        System.out.println("udało");
-//        return "/flight/list";
-//
-//    }
-
     @GetMapping(path = "/glider/list")
     public String findAllGliders(Model model) {
         List<Glider> gliderList = gliderService.findAllGliders();
         model.addAttribute("gliderList", gliderList);
         return "glider/list";
     }
-
-
-//    @ModelAttribute("gliders")
-//    public List<Glider> findAllGliders(){
-//        return gliderService.findAllGliders();
-//    }
-public static void createPdf(List<Flight> flights, String filename) throws FileNotFoundException, DocumentException {
-
-    filename = "test.pdf";
-    Document document = new Document();
-
-    PdfWriter.getInstance(document, new FileOutputStream(filename));
-
-
-    document.open();
-
-    Paragraph paragraph = new  Paragraph("testowanie pdfa");
-    document.add(paragraph);
-    PdfPTable table  = new PdfPTable(4);
-
-
-    if (flights != null){
-
-        PdfPCell header = new PdfPCell(new Phrase("Data lotu:"));
-        table.addCell(header);
-        header = new PdfPCell(new Phrase("Czas lotu godz:"));
-        table.addCell(header);
-        header = new PdfPCell(new Phrase("Czas lotu min:"));
-        table.addCell(header);
-
-        header = new PdfPCell(new Phrase("liczba lotów::"));
-        table.addCell(header);
-
-        for (Flight flight: flights) {
-            table.addCell(flight.getDateOfFlight().toString());
-            table.addCell(flight.getFlightHrs().toString());
-            table.addCell(flight.getFlightMins().toString());
-            table.addCell(flight.getCycles().toString());
-
-        }
-    }else{
-        table.addCell("lista jest pusta");
-    }
-    document.add(table);
-
-
-
-
-
-
-
-    document.close();
-
-    System.out.println("koniec");
-}
-
-
 
 }

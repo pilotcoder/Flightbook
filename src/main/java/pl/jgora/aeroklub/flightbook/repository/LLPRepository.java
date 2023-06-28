@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface LLPRepository extends JpaRepository<LLP, Long> {
 
-    @EntityGraph(attributePaths = {"glider"})
+//    @EntityGraph(attributePaths = {"glider"})
 
     public LLP findByName(String name);
 
