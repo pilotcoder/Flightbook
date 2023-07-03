@@ -30,9 +30,13 @@ public class Flight {
     private Integer flightTime;
 
 //    @Column(insertable = false, updatable = false)// z @Transiend nie działało przy update
+    @Min(value = 0)
+    @NotNull
     private Integer flightHrs;
 
 //    @Column(insertable = false, updatable = false)
+@Min(value = 0)
+@NotNull
     private Integer flightMins;
     @Min(value = 1)
     private Integer cycles;

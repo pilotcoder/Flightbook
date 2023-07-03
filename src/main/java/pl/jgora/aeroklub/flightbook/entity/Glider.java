@@ -50,11 +50,17 @@ public class Glider {
 
     @PostLoad
     public void totalTimeCount() {
-        int temp = 0;
+        int tempMins = 0;
         for (Flight flight : flightList) {
-            temp = temp + flight.getFlightTime();
+            tempMins = tempMins + flight.getFlightTime();
         }
-        totalFlightTime = temp;
+        int tempCycles = 0;
+        for (Flight flight : flightList) {
+            tempCycles = tempCycles + flight.getCycles();
+        }
+        totalCycles = tempCycles;
+
+        totalFlightTime = tempMins;
 
         flightHrs = totalFlightTime / 60;
         flightMins = totalFlightTime % 60;
