@@ -238,12 +238,12 @@
                   </div>
 
                 </c:when>
-                <c:when test="${part.maxLifeTimeInFH < glider.totalFlightTime} - 60*100">
+                <c:when test="${part.maxLifeTimeInFH < (glider.totalFlightTime + glider.alertIntervalInFH)}">
 
                   <div class="col-lg-6 mb-4">
                     <div class="card bg-danger text-white shadow">
                       <div class="card-body">
-                         UWAGA!!! ${part.name}, ${part.type}, ${part.serialNumber} ważność kończy się przy nalocie ${part.maxLifeTimeInFH}!!!
+                         UWAGA!!! ${part.name}, ${part.type}, ${part.serialNumber} ważność kończy się przy nalocie ${part.maxFlightHrs} godz. i ${part.maxFlightMins} minut!!!
                             <div class="text-white-50 small">Pamiętaj o wymianie!!!</div>
                       </div>
                     </div>

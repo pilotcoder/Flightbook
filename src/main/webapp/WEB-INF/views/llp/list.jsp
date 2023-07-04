@@ -105,7 +105,7 @@
                   <td>${llp.serialNumber}</td>
                   <td>${llp.lifeTimeInYears}</td>
                   <td>${llp.dateOfExpiry}</td>
-                  <td> Godz:${llp.flightHrs} min:${llp.flightMins}</td>
+                  <td> Godz:${llp.maxFlightHrs} min:${llp.maxFlightMins}</td>
                   <td><a href="<c:url value='/llp/edit?id=${llp.id}'/>">Popraw</a></td>
                   <td><a href="<c:url value='/llp/delete?id=${llp.id}'/>" onclick="return confirm('Czy na pewno chcesz usunąc ten lot? Nie będzie można już go odzyskać!')">Usuń</a></td>
                 </tr>

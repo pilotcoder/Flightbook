@@ -40,7 +40,9 @@ public class Glider {
     @Column(insertable = false, updatable = false)
     private Integer flightMins;
 
-    private LocalDate alertIntervalInDays = LocalDate.now().plusDays(30);
+    private Integer alertIntervalInDays;
+
+    private Integer alertIntervalInFH;
 
     @OneToMany(mappedBy = "glider")
     private List<Flight> flightList = new ArrayList<>();

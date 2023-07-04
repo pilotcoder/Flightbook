@@ -43,11 +43,15 @@ public class LLP {
     private LocalDate dateOfExpiry;
 
 
-    @Column(insertable = false, updatable = false)
+  //  @Column(insertable = false, updatable = false)
     private Integer flightHrs;
 
-    @Column(insertable = false, updatable = false)
+  //  @Column(insertable = false, updatable = false)
     private Integer flightMins;
+    @Column(insertable = false, updatable = false)
+    private Integer maxFlightHrs;
+    @Column(insertable = false, updatable = false)
+    private Integer maxFlightMins;
 
 
     @ManyToOne
@@ -65,13 +69,15 @@ public class LLP {
 
         @PostLoad
     private void reParseTime() {
-        flightHrs = maxLifeTimeInFH / 60;
-       flightMins = maxLifeTimeInFH % 60;
+        maxFlightHrs = maxLifeTimeInFH / 60;
+       maxFlightMins = maxLifeTimeInFH % 60;
 
             LocalDate nextDate = LocalDate.now().plusDays(30);
 
             if (dateOfExpiry.isBefore(nextDate)) {
                 valid = false;
+            }else{
+                valid = true;
             }
     }
 
