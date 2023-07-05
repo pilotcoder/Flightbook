@@ -84,19 +84,16 @@
             <div class="text-lg-left">
               <form:form method="post" modelAttribute="llp">
 
-                <div>nazwa: <form:input path="name"/><form:errors path="name"/></div>
-                <div>typ: <form:input path="type"/><form:errors path="type"/></div>
-                <div>S/N: <form:input path="serialNumber"/><form:errors path="serialNumber"/></div>
-
-                <div>do szybowca: <form:radiobuttons path="glider" items="${gliders}" itemLabel="regNumber" itemValue="id" /><form:errors path="glider"/></div>
-
-                <div>żywotność: <form:input path="lifeTimeInYears" type="number" min="1" placeholder="podaj w latach"/><form:errors path="lifeTimeInYears"/></div>
-                <div>resurs: <form:input path="lifeTimeInFH" type="number" min="1" placeholder="podaj w godzinach"/><form:errors path="lifeTimeInFH"/></div>
+                <div>nazwa: <form:input path="name"/><form:errors path="name" /></div>
+                <div>typ: <form:input path="type"/><form:errors path="type" /></div>
+                <div>S/N: <form:input path="serialNumber"/><form:errors path="serialNumber" /></div>
+                <div>żywotność: <form:input path="lifeTimeInYears" type="number" min="1" placeholder="podaj w latach"/><form:errors path="lifeTimeInYears" /></div>
+                <div>resurs: <form:input path="lifeTimeInFH" type="number" min="1" placeholder="podaj w godzinach"/><form:errors path="lifeTimeInFH" /></div>
                 <div>nalot przy zabudowie: </div>
-                <div>godziny: <form:input path="flightHrs" type="number" min="0"/><form:errors path="flightHrs"/></div>
-                <div>minuty: <form:input path="flightMins" type="number" min="0" max="59"/><form:errors path="flightMins"/></div>
-                <div>Data zabudowy: <form:input path="dateOfInstall" type="date"/><form:errors path="dateOfInstall"/></div>
-
+                <div>godziny: <form:input path="flightHrs" type="number" min="0"/></div><form:errors path="flightHrs" />
+                <div>minuty: <form:input path="flightMins" type="number" min="0" max="59"/></div><form:errors path="flightMins" />
+                <div>Data zabudowy: <form:input path="dateOfInstall" type="date"/></div><form:errors path="dateOfInstall" />
+                <div>do szybowca: <form:radiobuttons path="glider" items="${gliders}" itemLabel="id" itemValue="id"/><form:errors path="glider"/></div>
 
 
                 <input type="submit" value="Dodaj podzespół">

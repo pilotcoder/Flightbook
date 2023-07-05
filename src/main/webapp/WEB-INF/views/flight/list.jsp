@@ -43,7 +43,7 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-  Addons
+
 </div>
 
 

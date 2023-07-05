@@ -19,7 +19,7 @@ public class LLP {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
+    @NotBlank(message = "{title.not.empty.error}")
     private String name;
     @NotBlank
     private String type;
