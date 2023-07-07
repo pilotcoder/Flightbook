@@ -27,7 +27,6 @@ public class LLP {
     @ColumnDefault("true")
     private boolean valid;
     @NotNull(message = "{title.hrs.error}")
-
     private Integer lifeTimeInYears;
 
 @NotNull(message = "{title.date.error}")
@@ -36,11 +35,11 @@ public class LLP {
     @NotNull(message = "{title.hrs.error}")
 
     private Integer lifeTimeInFH;
-    @NotNull(message = "{title.hrs.error}")
+   // @NotNull(message = "{title.hrs.error}")
     private Integer flightHoursOfInstall;
-    @NotNull(message = "{title.hrs.error}")
+//    @NotNull(message = "{title.hrs.error}")
     private Integer maxLifeTimeInFH;
-    @NotNull(message = "{title.date.error}")
+  //  @NotNull(message = "{title.date.error}")
     private LocalDate dateOfExpiry;
 
 
