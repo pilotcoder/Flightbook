@@ -23,7 +23,7 @@ public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
+    @NotNull(message = "{title.date.error}")
     @DateTimeFormat(pattern = "yyy-MM-dd")
     private LocalDate dateOfFlight;
     @ColumnDefault("0")
@@ -31,12 +31,12 @@ public class Flight {
 
 //    @Column(insertable = false, updatable = false)// z @Transiend nie działało przy update
     @Min(value = 0)
-    @NotNull
+    @NotNull(message = "{title.hrs.error}")
     private Integer flightHrs;
 
 //    @Column(insertable = false, updatable = false)
 @Min(value = 0)
-@NotNull
+@NotNull(message = "{title.mins.error}")
     private Integer flightMins;
     @Min(value = 1)
     private Integer cycles;

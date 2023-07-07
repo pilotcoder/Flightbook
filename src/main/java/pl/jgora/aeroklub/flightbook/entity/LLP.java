@@ -21,25 +21,26 @@ public class LLP {
     private Long id;
     @NotBlank(message = "{title.not.empty.error}")
     private String name;
-    @NotBlank
+    @NotBlank(message = "{title.not.empty.error}")
     private String type;
     private String serialNumber;
     @ColumnDefault("true")
     private boolean valid;
-    @NotNull
+    @NotNull(message = "{title.hrs.error}")
 
     private Integer lifeTimeInYears;
 
-@NotNull
+@NotNull(message = "{title.date.error}")
     @DateTimeFormat(pattern = "yyy-MM-dd")
     private LocalDate dateOfInstall;
-    @NotNull
+    @NotNull(message = "{title.hrs.error}")
 
     private Integer lifeTimeInFH;
-
+    @NotNull(message = "{title.hrs.error}")
     private Integer flightHoursOfInstall;
-
+    @NotNull(message = "{title.hrs.error}")
     private Integer maxLifeTimeInFH;
+    @NotNull(message = "{title.date.error}")
     private LocalDate dateOfExpiry;
 
 
