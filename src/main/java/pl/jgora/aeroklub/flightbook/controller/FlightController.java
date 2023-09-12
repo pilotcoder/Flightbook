@@ -133,7 +133,7 @@ public class FlightController {
     public List<Glider> findAllGliders(){
         return gliderService.findAllGliders();
     }
-
+// wywalić static i przenieść do service
     public static void createPdf(List<Flight> flights, String filename) throws FileNotFoundException, DocumentException {
 
 
