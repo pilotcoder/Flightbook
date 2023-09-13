@@ -28,7 +28,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GliderControler {
     private final GliderService gliderService;
-    private final FlightService flightService;
+    private final FlightService flightService; // comment
 
     @GetMapping(path = "/glider/add")
     String showAddGliderForm(Model model) {
