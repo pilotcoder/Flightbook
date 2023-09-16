@@ -34,7 +34,7 @@ public class Flight {
     @NotNull(message = "{title.hrs.error}")
     private Integer flightHrs;
 
-//    @Column(insertable = false, updatable = false)
+//    @Column(insertable = false, updatable = false).
 @Min(value = 0)
 @NotNull(message = "{title.mins.error}")
     private Integer flightMins;
