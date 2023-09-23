@@ -54,5 +54,4 @@ public class FlightService {
     public List<Flight> findByDateOfFlightBetween(LocalDate beginDate, LocalDate endDate) {
          return flightRepository.findByDateOfFlightBetween(beginDate, endDate);
     }
-
 }
