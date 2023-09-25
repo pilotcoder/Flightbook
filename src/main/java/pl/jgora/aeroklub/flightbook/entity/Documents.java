@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDate;
+
 @Entity
 @Setter
 @Getter
@@ -15,5 +17,8 @@ public class Documents {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
+    private String descroption;
+    private LocalDate dateOfExpiry;
 
 }
