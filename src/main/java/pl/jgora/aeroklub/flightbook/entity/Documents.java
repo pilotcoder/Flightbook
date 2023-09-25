@@ -18,7 +18,7 @@ public class Documents {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String descroption;
+    private String description;
     private LocalDate dateOfExpiry;
 
 }
