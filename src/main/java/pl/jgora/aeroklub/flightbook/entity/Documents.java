@@ -23,5 +23,7 @@ public class Documents {
     private String description;
     @NotNull
     private LocalDate dateOfExpiry;
+    @ManyToOne
+    private Glider glider;
 
 }
