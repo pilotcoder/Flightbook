@@ -1,6 +1,7 @@
 package pl.jgora.aeroklub.flightbook.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,8 +18,10 @@ public class Documents {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String name;
     private String description;
+    @NotNull
     private LocalDate dateOfExpiry;
 
 }
