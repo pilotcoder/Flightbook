@@ -2,7 +2,7 @@ package pl.jgora.aeroklub.flightbook.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import pl.jgora.aeroklub.flightbook.entity.Documents;
-import pl.jgora.aeroklub.flightbook.entity.LLP;
+
 
 import java.util.List;
 
