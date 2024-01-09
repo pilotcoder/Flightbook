@@ -99,7 +99,7 @@
                   <td>${llp.dateOfExpiry}</td>
                   <td> Godz:${llp.maxFlightHrs} min:${llp.maxFlightMins}</td>
                   <td><a href="<c:url value='/llp/edit?id=${llp.id}'/>">Popraw</a></td>
-                  <td><a href="<c:url value='/llp/delete?id=${llp.id}'/>" onclick="return confirm('Czy na pewno chcesz usunąc ten podzespół? Nie będzie można go nigdy odzyskać!')">Usuń</a></td>
+                  <td><a href="<c:url value='/llp/delete?id=${llp.id}'/>" onclick="return confirm('Czy na pewno chcesz usunąc ten podzespół? Nie będzie można go  odzyskać!')">Usuń</a></td>
                 </tr>
               </c:forEach>
 
