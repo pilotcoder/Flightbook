@@ -3,6 +3,7 @@ package pl.jgora.aeroklub.flightbook.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.jgora.aeroklub.flightbook.entity.Documents;
 import pl.jgora.aeroklub.flightbook.repository.DocumentsRepository;
 
 @Service
@@ -11,6 +12,10 @@ import pl.jgora.aeroklub.flightbook.repository.DocumentsRepository;
 public class DocumentsService {
 
     private final DocumentsRepository documentsRepository;
+
+    public void save(Documents documents){
+        documentsRepository.save(documents);
+    }
 
 
 }
