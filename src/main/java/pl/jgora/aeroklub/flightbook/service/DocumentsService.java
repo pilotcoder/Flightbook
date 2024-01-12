@@ -22,5 +22,4 @@ public class DocumentsService {
         return documentsRepository.findDocumentsByGliderId(gliderId);
     }
 
-
 }
