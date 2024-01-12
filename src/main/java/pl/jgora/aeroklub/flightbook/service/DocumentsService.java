@@ -21,5 +21,8 @@ public class DocumentsService {
     public List<Documents> findAllDocumentsByGliderId (Long gliderId){
         return documentsRepository.findDocumentsByGliderId(gliderId);
     }
+    public void deleteById(Long id) {
+        documentsRepository.deleteById(id);
+    }
 
 }
