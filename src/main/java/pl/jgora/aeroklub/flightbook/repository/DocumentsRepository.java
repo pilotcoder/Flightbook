@@ -13,5 +13,4 @@ public interface DocumentsRepository extends JpaRepository<Documents, Long> {
     public List<Documents> findDocumentsByGliderId (Long gliderId);
 
     public List<Documents> findByDateOfExpiry (LocalDate dateOfExpiry);
-
 }
