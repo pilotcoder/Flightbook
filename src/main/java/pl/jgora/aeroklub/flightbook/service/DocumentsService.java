@@ -15,15 +15,20 @@ public class DocumentsService {
 
     private final DocumentsRepository documentsRepository;
 
-    public void save(Documents documents){
+    public void save(Documents documents) {
         documentsRepository.save(documents);
     }
-    public List<Documents> findAllDocumentsByGliderId (Long gliderId){
+
+    public List<Documents> findAllDocumentsByGliderId(Long gliderId) {
         return documentsRepository.findDocumentsByGliderId(gliderId);
     }
-    public void deleteById(Long id)
-    {documentsRepository.deleteById(id);}
-    public void editDocuments(Documents documents)
-    {documentsRepository.save(documents);}
+
+    public void deleteById(Long id) {
+        documentsRepository.deleteById(id);
+    }
+
+    public void editDocuments(Documents documents) {
+        documentsRepository.save(documents);
+    }
 
 }
