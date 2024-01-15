@@ -23,6 +23,7 @@ public class DocumentsService {
     }
     public void deleteById(Long id)
     {documentsRepository.deleteById(id);}
-    public void editDocuments(Documents documents){documentsRepository.save(documents);}
+    public void editDocuments(Documents documents)
+    {documentsRepository.save(documents);}
 
 }
