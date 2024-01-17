@@ -38,3 +38,4 @@ insert into parts(name, type, serialNumber, flightHoursOfInstall,  valid, glider
 
 insert into documents(name, description, dateOfExpiry, glider_id) values("ARC", "swiadectwo zdatnosci do lotu", '2024-01-01', 1);
 insert into documents(name, description, dateOfExpiry, glider_id) values("OC", "ubezpieczenie", '2024-04-01', 1);
+insert into documents(name, description, dateOfExpiry, glider_id) values("RADIO", "Pozwolenie radiowe", '2032-04-01', 1);
