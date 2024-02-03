@@ -10,6 +10,7 @@ import java.util.List;
 public interface DocumentsRepository extends JpaRepository<Documents, Long> {
 
     public Documents findByName(String name);
+
     public List<Documents> findDocumentsByGliderId (Long gliderId);
 
     public List<Documents> findByDateOfExpiry (LocalDate dateOfExpiry);
