@@ -37,6 +37,5 @@ insert into parts(name, type, serialNumber, flightHoursOfInstall,  valid, glider
 insert into parts(name, type, serialNumber, flightHoursOfInstall,  valid, glider_id, lifeTimeInYears, dateOfInstall, lifeTimeInFH, maxLifeTimeInFH, dateOfExpiry, flightHrs, flightMins) values ('linki napędu hamulca', '2,4mm', '349/B/2020', 0, true, 1, 12, '2020-04-30', 20, 1000*60, '2032-04-30', 0, 0);
 
 insert into documents(name, description, dateOfExpiry, glider_id) values("ARC", "swiadectwo zdatnosci do lotu", '2024-01-01', 1);
-
 insert into documents(name, description, dateOfExpiry, glider_id) values("OC", "ubezpieczenie", '2024-04-01', 1);
 insert into documents(name, description, dateOfExpiry, glider_id) values("RADIO", "Pozwolenie radiowe", '2032-04-01', 1);
