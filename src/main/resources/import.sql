@@ -28,7 +28,7 @@ insert into flights(dateOfFlight, flightTime, cycles, glider_id, flightHrs, flig
 
 
 
-insert into parts(name, type, serialNumber, flightHoursOfInstall,  valid, glider_id, lifeTimeInYears, dateOfInstall, lifeTimeInFH, maxLifeTimeInFH, dateOfExpiry, flightHrs, flightMins) values ('zaczep', 'szd', 'R234', 0, true, 1, 6, '2017-07-12', 1000, 1000*60, '2023-07-12', 0, 0);
+insert into parts(name, type, serialNumber, flightHoursOfInstall,  valid, glider_id, lifeTimeInYears, dateOfInstall, lifeTimeInFH, maxLifeTimeInFH, dateOfExpiry, flightHrs, flightMins) values ('zaczep', 'szd', 'R234', 0, true, 1, 6, '2018-03-12', 1000, 1000*60, '2024-03-12', 0, 0);
 insert into parts(name, type, serialNumber, flightHoursOfInstall,  valid, glider_id, lifeTimeInYears, dateOfInstall, lifeTimeInFH, maxLifeTimeInFH, dateOfExpiry, flightHrs, flightMins) values ('pasy', 'J5.00.00', '1.14.55', 0, true, 1, 12, '2014-04-03', 1000, 1000*60, '2029-04-03', 0, 0);
 insert into parts(name, type, serialNumber, flightHoursOfInstall,  valid, glider_id, lifeTimeInYears, dateOfInstall, lifeTimeInFH, maxLifeTimeInFH, dateOfExpiry, flightHrs, flightMins) values ('linki napędu steru wysokości', '2,4mm', '342/E/2020', 0, true, 1, 12, '2020-04-30', 20, 1000*60, '2032-04-30', 0, 0);
 insert into parts(name, type, serialNumber, flightHoursOfInstall,  valid, glider_id, lifeTimeInYears, dateOfInstall, lifeTimeInFH, maxLifeTimeInFH, dateOfExpiry, flightHrs, flightMins) values ('linki napędu steru kierunku', '3,2mm', '343/R/2020', 0, true, 1, 12, '2020-04-30', 20, 20*60, '2032-04-30', 0, 0);
@@ -38,6 +38,5 @@ insert into parts(name, type, serialNumber, flightHoursOfInstall,  valid, glider
 
 insert into documents(name, description, dateOfExpiry, glider_id) values("ARC", "swiadectwo zdatnosci do lotu", '2024-01-01', 1);
 insert into documents(name, description, dateOfExpiry, glider_id) values("OC", "ubezpieczenie", '2024-04-01', 1);
-insert into documents(name, description, dateOfExpiry, glider_id) values("RADIO", "Pozwolenie radiowe", '2032-04-01', 1);
 insert into documents(name, description, dateOfExpiry, glider_id) values("RADIO", "Pozwolenie radiowe", '2032-04-01', 1);
 
