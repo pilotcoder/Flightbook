@@ -5,7 +5,7 @@
 > An application for pilots and CAMO organizations to maintain documentation and manage the airworthiness of their gliders.
 > (CAMO -->Continuing Airworthiness Managment Organisation)
 
-![2a](https://github.com/pilotcoder/Flightbook/assets/117765853/ab1cdd62-f102-49b7-8d91-0318cffb5783)
+![sample](https://github.com/pilotcoder/Flightbook/assets/117765853/ab1cdd62-f102-49b7-8d91-0318cffb5783)
 
  ## Main features:
  
@@ -24,7 +24,7 @@
 * Calculating the current status of parts based on the total flight time of the glider and today's date
 * Displaying ALERTS on the home page regarding part expiration
 
-![animiertes-gif-von-online-umwandeln-de](https://github.com/pilotcoder/Flightbook/assets/117765853/e15b22cf-9a78-4bad-982b-5c285655f773)
+![sample-gif](https://github.com/pilotcoder/Flightbook/assets/117765853/e15b22cf-9a78-4bad-982b-5c285655f773)
 
 ### Status - in progress
 upcoming changes:
