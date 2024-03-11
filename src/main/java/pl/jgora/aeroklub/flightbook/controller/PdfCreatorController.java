@@ -18,7 +18,7 @@ public class PdfCreatorController {
 
     public static void main(String[] args) throws FileNotFoundException, DocumentException {
 
-        String filename = "test.pdf";
+        String filename = "velvet.pdf";
         Document document = new Document();
 
         PdfWriter.getInstance(document, new FileOutputStream(filename));
@@ -30,6 +30,8 @@ public class PdfCreatorController {
         document.add(paragraph);
 
         PdfPTable table  = new PdfPTable(4);
+
+
 
 
         PdfPCell header = new PdfPCell(new Phrase("Data lotu:"));
