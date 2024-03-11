@@ -5,7 +5,7 @@
 > An application for pilots and CAMO organizations to maintain documentation and manage the airworthiness of their gliders.
 > (CAMO -->Continuing Airworthiness Managment Organisation)
 
-![sample](https://github.com/pilotcoder/Flightbook/assets/117765853/ab1cdd62-f102-49b7-8d91-0318cffb5783)
+![homepage](https://github.com/pilotcoder/Flightbook/assets/117765853/da4930da-b070-4812-88dd-4f53a3e3c227)
 
  ## Main features:
  
