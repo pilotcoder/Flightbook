@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.jgora.aeroklub.flightbook.entity.Documents;
 import pl.jgora.aeroklub.flightbook.repository.DocumentsRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -29,6 +30,9 @@ public class DocumentsService {
 
     public void editDocuments(Documents documents) {
         documentsRepository.save(documents);
+    }
+
+    public void findDocumentsByDateOfExpiry(LocalDate dateOfExpiry){documentsRepository.findDocumentsByDateOfExpiry(dateOfExpiry);
     }
 
 }
