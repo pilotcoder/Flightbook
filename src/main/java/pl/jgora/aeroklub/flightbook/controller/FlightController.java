@@ -101,6 +101,7 @@ public class FlightController {
     }
 
 
+   // @GetMapping(path = "/flight/delete/{id}")
     @GetMapping(path = "/flight/delete", params = "id")
     public String deleteFlight(@RequestParam Long id){
         flightService.deleteById(id);
