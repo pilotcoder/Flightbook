@@ -33,7 +33,6 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class FlightController {
-
     private final FlightService flightService;
     private final GliderService gliderService;
 
